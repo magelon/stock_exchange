@@ -1,14 +1,12 @@
+<!DOCTYPE html>
+<html>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "1234";
+if($dbc = mysql_connect('localhost','root','1234')){
+	print '<p>Successfully connected to MySql!</p>';
+	mysql_close($dbc);
+}else{
+	print'<p style="color: red;">Could not connect to MySql.</p>';
+}
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
 ?>
+</html>
