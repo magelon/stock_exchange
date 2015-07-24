@@ -25,7 +25,8 @@ if($dbc){
 	AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(50) NOT NULL,
 	password VARCHAR(40) NOT NULL,
-	reg_date DATETIME NOT NULL
+	reg_date DATETIME NOT NULL,
+	UNIQUE (email)
 	)';
 	
 	//Excute the query:
