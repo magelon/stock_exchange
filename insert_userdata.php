@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	//Validate the form data:
 	$problem = FALSE;
 	if(!empty($_POST['email']) && !empty($_POST['password'])){
+		//remove space in both side string
 		$email=trim(strip_tags($_POST['email']));
 		$password=trim(strip_tags($_POST['password']));
 	}else{
@@ -29,19 +30,19 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 }//end of form submission if
 //Dispaly the form:
 
-?> 
+?>
 
 <form action="insert_userdata.php" method="post">
 
 email:<br>
 <input type="text" name="email">
 password:<br>
-<input type="password" name="password"> 
+<input type="password" name="password">
 <br>
 <input type="submit" value="Submit">
 </form>
 
- 
+
 
 </body>
 </html>
