@@ -25,10 +25,11 @@ if($dbc){
 	AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(50) NOT NULL,
 	password VARCHAR(40) NOT NULL,
+	access VARCHAR(10) NOT NULL,
 	reg_date DATETIME NOT NULL,
 	UNIQUE (email)
 	)';
-	
+
 	//Excute the query:
 	if(@mysql_query($query,$dbc)){
 		print '<p>The table has been created!</p>';
@@ -41,7 +42,7 @@ if($dbc){
 
 
 
-?>  
+?>
 
 </body>
 </html>
