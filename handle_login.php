@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta />
+<title>php script handle login html</title>
+<style type="text/css" media="screen"> .error{color:red;}</style>
+</head>
 <body>
+<h1>Register result</h1>
 
-<?php
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	//Handel the form
 	//Connect and select
@@ -20,30 +25,40 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	}
 	if(!$problem){
 		//Define the query:
-		$query = "INSERT INTO users (user_id,email,password,access,reg_date) VALUES (0,'$email','$password','$access',NOW())";
+		$pass='';
+		$query = "SELECT password from users WHERE email='$email' LIMIT 1 ";
 		//Execute the query:
-		if(@mysql_query($query,$dbc)){
+		if(!$){
 			print '<p style="color:red;">Could not add user because:<br />'.mysql_error($dbc).'.</p><p>The query being run was:'.$query.'</p>';
 		}
 	}//No problem!
 	mysql_close($dbc);//close the connection.
 }//end of form submission if
-//Dispaly the form:
+
+
+
+<?php//handle_login.php/*receives values from login html
+//flag variable to track success:
+$okay=TRUE;
+//validate the email address:
+if(empty($_POST['email'])){
+	print '<p class="error">please enter email</p>';
+	$okay=FALSE;
+}//validate the password:
+if(empty($_POST['password'])){
+	print '<p class="error">Please enter your password.</p>';
+	$oaky=FALSE;
+}
+//validate the password:
+
+//if there were no error, print a success message:
+if($okay){
+	print'<p>you have been sccessfully registered .</p>';
+}
+
+
 
 ?>
-
-<form action="insert_userdata.php" method="post">
-
-email:<br>
-<input type="text" name="email">
-password:<br>
-<input type="password" name="password">
-<br>
-<input type="hidden" name="access" value="user">
-<input type="submit" value="Submit">
-</form>
-
-
 
 </body>
 </html>
