@@ -6,6 +6,8 @@
   <!-- Latest compiled and minified JavaScript -->
 <script src="js/bootstrap.min.js"></script>
 
+
+
 <style>
 body {
     background-color: linen;
@@ -37,8 +39,16 @@ footer {
       </a>
     </div>
 
-    <button type="button" class="btn btn-default navbar-btn"><a href="login.html">Sign in</a></button>
-    <button type="button" class="btn btn-default navbar-btn"><a href="register.html">sign up</a></button>
+    <?php
+    if (isset($_SESSION['user_id'])) {
+    	echo '<button type="button" class="btn btn-default navbar-btn"><a href="logout.php">Sign out</a></button>';
+    } else {
+    	echo '<button type="button" class="btn btn-default navbar-btn"><a href="login.html">Sign in</a></button>
+        <button type="button" class="btn btn-default navbar-btn"><a href="register.html">sign up</a></button>';
+    }
+    ?>
+
+
 
   </div>
 </nav>
