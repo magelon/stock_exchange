@@ -20,14 +20,19 @@
 
 			<?php // Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
-			echo '<a href="logout.php">Logout</a><a>only for login</a>';
+			echo '<a href="logout.php">Logout</a>
+
+			<button type="button" class="btn btn-default navbar-btn"><a>only for login</a></button>
+			<button type="button" class="btn btn-default navbar-btn"><a href="password.php">password change</a></button>';
 
 			if($_SESSION['role']=='admin'){
-					echo '<a href=" ">admin</a>';
+					echo '<button type="button" class="btn btn-default navbar-btn"><a href="view_users.php ">admin</a></button>';
 				}
 		}
 			else {
-			echo '<a href="login.php">Login</a><a href="register.php">register</a>';
+			echo '
+			<button type="button" class="btn btn-default navbar-btn">	<a href="login.php">Login</a></button>
+		<button type="button" class="btn btn-default navbar-btn"><a href="register.php">register</a></button>';
 			}
 			?>
 
