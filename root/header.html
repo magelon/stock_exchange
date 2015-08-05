@@ -20,11 +20,17 @@
 
 			<?php // Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
-			echo '<a href="logout.php">Logout</a>';
-			} else {
-			echo '<a href="login.php">Login</a>';
+			echo '<a href="logout.php">Logout</a><a>only for login</a>';
+
+			if($_SESSION['role']=='admin'){
+					echo '<a href=" ">admin</a>';
+				}
+		}
+			else {
+			echo '<a href="login.php">Login</a><a href="register.php">register</a>';
 			}
 			?>
+
 
 
 	  </div>

@@ -18,11 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Set the cookies:
 		setcookie ('user_id', $data['user_id']);
 		setcookie ('name', $data['name']);
+		setcookie ('role',$data['role']);
+
 		// Set the session data:
 		session_start();
 		$_SESSION['user_id'] = $data['user_id'];
 		$_SESSION['name'] = $data['name'];
-
+		$_SESSION['role'] = $data['role'];
 		// Store the HTTP_USER_AGENT:
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
 
