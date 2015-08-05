@@ -8,7 +8,7 @@ session_start(); // Access the existing session.
 if (!isset($_SESSION['user_id'])) {
 
 	// Need the functions:
-	require ('includes/login_functions.php');
+	require ('includes/login_function.php');
 	redirect_user();
 
 } else { // Cancel the session:
@@ -21,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Set the page title and include the HTML header:
 $page_title = 'Logged Out!';
-include ('includes/header.html');
+include ('header.html');
 
 // Print a customized message:
 echo "<h1>Logged Out!</h1>

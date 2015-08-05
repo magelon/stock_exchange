@@ -5,7 +5,7 @@
  * The function takes one argument: the page to be redirected to.
  * The argument defaults to index.php.
  */
-function redirect_user ($page = 'index.html') {
+function redirect_user ($page = 'index.php') {
 
 	// Start defining the URL...
 	// URL is http:// plus the host name plus the current directory:
@@ -44,7 +44,7 @@ function check_login($dbc, $email = '', $pass = '') {
 	if (empty($errors)) { // If everything's OK.
 
 		// Retrieve the user_id and first_name for that email/password combination:
-		$q = "SELECT user_id, user_name FROM users WHERE email='$e' AND pass=SHA1('$p')";
+		$q = "SELECT user_id, name FROM users WHERE email='$e' AND pass=SHA1('$p')";
 		$r = @mysqli_query ($dbc, $q); // Run the query.
 
 		// Check the result:

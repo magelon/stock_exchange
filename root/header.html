@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	<title><?php echo $page_title; ?></title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">
+	        <img alt="Brand" src="uploads/umaru00.png">
+	      </a>
+	    </div>
+
+			<?php // Create a login/logout link:
+			if (isset($_SESSION['user_id'])) {
+			echo '<a href="logout.php">Logout</a>';
+			} else {
+			echo '<a href="login.php">Login</a>';
+			}
+			?>
+
+
+	  </div>
+	</nav>
+
+	<!-- Start of the page-specific content. -->
+<!-- Script 9.1 - header.html -->
