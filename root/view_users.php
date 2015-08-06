@@ -19,7 +19,7 @@ if($_SESSION['role']!='admin'){
 require ('../mysqli_connect.php'); // Connect to the db.
 
 // Make the query:
-$q = "SELECT  name, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr FROM users ORDER BY registration_date ASC";
+$q = "SELECT  name,balance, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr FROM users ORDER BY registration_date ASC";
 $r = @mysqli_query ($dbc, $q); // Run the query.
 
 // Count the number of returned rows:
@@ -31,13 +31,22 @@ if ($num > 0) { // If it ran OK, display the records.
 	echo "<p>There are currently $num registered users.</p>\n";
 
 	// Table header.
-	echo '<table align="center" cellspacing="3" cellpadding="3" width="75%">
-	<tr><td align="left"><b>Name</b></td><td align="left"><b>Date Registered</b></td></tr>
+	echo '<table align="center" cellspacing="8" cellpadding="4" width="75%">
+	<tr>
+	<td align="left"><b>Name</b></td>
+	<td><td align="left"><b>Balance</b></td>
+	<td align="left"><b>Date Registered</b></td>
+	</tr>
 ';
 
 	// Fetch and print all the records:
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-		echo '<tr><td align="left">' . $row['name'] . '</td><td align="left">' . $row['dr'] . '</td></tr>
+		echo ' <table align="center" cellspacing="8" cellpadding="1" width="75%">
+		<tr>
+		<td align="left">' . $row['name'] .'</td>
+		<td >' . $row['balance'] . '</td>
+		<td align="right">' . $row['dr'] . '</td>
+		 </tr>
 		';
 	}
 

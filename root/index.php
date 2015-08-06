@@ -1,6 +1,6 @@
 <?php
 
-
+session_start(); // Start the session.
 // Include the header:
 $page_title = 'index';
 include ('header.html');
@@ -29,6 +29,11 @@ if (isset($errors) && !empty($errors)) {
 	</div>
 	<div class="media-body">
 		<h4 class="media-heading">Media heading</h4>
+	</div>
+<br>
+<hr>
 
+<?php include ('includes/message.php');?>
+</div>
 
 <?php include ('includes/footer.html'); ?>
