@@ -17,12 +17,13 @@
 	        <img alt="Brand" src="uploads/umaru00.png">
 	      </a>
 	    </div>
+<?php include('search.php'); ?>
 
 			<?php // Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
 			echo '<a href="logout.php">Logout</a>
 
-			<button type="button" class="btn btn-default navbar-btn"><a>only for login</a></button>
+			<button type="button" class="btn btn-default navbar-btn"><a href="post.php">only for login</a></button>
 			<button type="button" class="btn btn-default navbar-btn"><a href="password.php">password change</a></button>
 			<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> ';
 			echo " {$_SESSION['balance']} ";

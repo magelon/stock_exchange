@@ -31,9 +31,12 @@ if (isset($errors) && !empty($errors)) {
 		<h4 class="media-heading">Media heading</h4>
 	</div>
 <br>
+<div>
+<?php include ('forum.php' ); ?>
+</div>
 <hr>
 
-<?php include ('includes/message.php');?>
+
 </div>
 
 <?php include ('includes/footer.html'); ?>
