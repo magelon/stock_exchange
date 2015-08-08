@@ -2,9 +2,10 @@
 // This page handles the message post.
 // It also displays the form if creating a new thread.
 $page_title = 'post';
+include ('session.php');
 include ('header.html');
 // Need the database connection:
-require ('../mysqli_connect.php');
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 

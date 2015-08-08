@@ -16,7 +16,6 @@ if($_SESSION['role']!='admin'){
 	redirect_user();
 }
 
-require ('../mysqli_connect.php'); // Connect to the db.
 
 // Make the query:
 $q = "SELECT  name,balance, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr FROM users ORDER BY registration_date ASC";

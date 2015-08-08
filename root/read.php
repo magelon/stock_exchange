@@ -1,8 +1,11 @@
 <?php # Script 17.5 - read.php
 // This page shows the messages in a thread.
+
+include ('session.php');
+
 include ('header.html');
 // Need the database connection:
-require ('../mysqli_connect.php');
+
 
 // Check for a thread ID...
 $tid = FALSE;

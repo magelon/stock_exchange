@@ -14,7 +14,7 @@ if (isset($_GET['terms'])) {
 }
 
 // Complete the form:
-echo '/><input name="submit" type="submit" value="submit" /></p></form>';
+echo '/><input name="submit" type="submit"  /></p></form>';
 
 if (isset($_GET['terms'])) { // Handle the form.
 
