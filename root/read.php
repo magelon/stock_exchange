@@ -22,10 +22,14 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	//}
 
 	// Run the query:
-	$q = "SELECT t.subject, t.body_t, name FROM threads AS t  INNER JOIN users AS u ON t.user_id = u.user_id  ";
+	$q = "select t.subject, t.body_t, u.name, p.message from threads as t inner join posts as p using (thread_id) inner join users as u on p.user_id=u.user_id where t.thread_id =$tid  ";
+	$q2 ="select t.subject, t.body_t from threads as t where thread_id=$tid ";
 	$r = mysqli_query($dbc, $q);
 	if (!(mysqli_num_rows($r) > 0)) {
-		$tid = FALSE; // Invalid thread ID!
+		$r = mysqli_query($dbc,$q2);
+		$messages = mysqli_fetch_array($r, MYSQLI_ASSOC);
+		echo "<h2>{$messages['subject']}</h2>\n<br />{$messages['body_t']}<br />";
+		
 	}
 
 } // End of isset($_GET['tid']) IF.
@@ -39,12 +43,12 @@ if ($tid) { // Get the messages in this thread...
 
 		// Only need to print the subject once!
 		if (!$printed) {
-			echo "<h2>{$messages['subject']}</h2>\n";
+			echo "<h2>{$messages['subject']}</h2>\n<br />{$messages['body_t']}<br />";
 			$printed = TRUE;
 		}
 
 		// Print the message:
-		echo "<p>{$messages['name']} <br />{$messages['body_t']}</p><br />\n";
+		echo "<p>{$messages['name']} \n<p>{$messages['message']} \n<hr></p>";
 
 	} // End of WHILE loop.
 
