@@ -41,9 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 
 		if (!$tid) { // Create a new thread.
 			$q = "INSERT INTO threads ( user_id, subject) VALUES ( {$_SESSION['user_id']}, '" . mysqli_real_escape_string($dbc, $subject) . "')";
+			$q2="update users set balance=balance+10 where  user_id={$_SESSION['user_id']}  ";
+
 			$r = mysqli_query($dbc, $q);
 			if (mysqli_affected_rows($dbc) == 1) {
+				$r2=mysqli_query($dbc, $q2);
 				$tid = mysqli_insert_id($dbc);
+
 			} else {
 				echo '<p>Your post could not be handled due to a system error.</p>';
 			}

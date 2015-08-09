@@ -7,7 +7,7 @@ include ('header.html');
 // Check for form submission:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	require ('../mysqli_connect.php'); // Connect to the db.
+
 
 	$errors = array(); // Initialize an error array.
 
@@ -44,7 +44,7 @@ $ro = mysqli_real_escape_string($dbc, trim($_POST['role']));
 		// Register the user in the database...
 
 		// Make the query:
-		$q = "INSERT INTO users (name, email, pass, registration_date,role) VALUES ('$fn', '$e', SHA1('$p'), NOW(),'$ro' )";
+		$q = "INSERT INTO users (name, email, pass, registration_date,role,balance) VALUES ('$fn', '$e', SHA1('$p'), NOW(),'$ro',200 )";
 		$r = @mysqli_query ($dbc, $q); // Run the query.
 		if ($r) { // If it ran OK.
 
@@ -93,7 +93,7 @@ $ro = mysqli_real_escape_string($dbc, trim($_POST['role']));
 	</div>
 	<div class="media-body">
 		<h4 class="media-heading">Media heading</h4>
-		
+
 <h1>Register</h1>
 <form action="register.php" method="post">
 	<p>Name: <input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" /></p>
@@ -101,6 +101,7 @@ $ro = mysqli_real_escape_string($dbc, trim($_POST['role']));
 	<p>Password: <input type="password" name="pass1" size="10" maxlength="20" value="<?php if (isset($_POST['pass1'])) echo $_POST['pass1']; ?>"  /></p>
 	<p>Confirm Password: <input type="password" name="pass2" size="10" maxlength="20" value="<?php if (isset($_POST['pass2'])) echo $_POST['pass2']; ?>"  /></p>
 	<p><input type="hidden" name="role" value="user"/></p>
+	<p><input type="hidden" name="balance" value="200"/></p>
 	<p><input type="submit" name="submit" value="Register" /></p>
 </form>
 <?php include ('includes/footer.html'); ?>
