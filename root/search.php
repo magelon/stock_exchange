@@ -17,7 +17,7 @@ if (isset($_GET['terms'])) {
 echo '/><input name="submit" type="submit"  /></p></form>';
 
 if (isset($_GET['terms'])) { // Handle the form.
-
+$page_title = 'search';
 include ('header2.html');
 	// Clean the terms:
 	$terms = mysqli_real_escape_string($dbc, htmlentities(strip_tags($_GET['terms'])));
@@ -26,7 +26,27 @@ include ('header2.html');
 	$q = "SELECT * FROM threads WHERE subject LIKE '%$terms%'";
 	$r = mysqli_query($dbc, $q);
 	if (mysqli_num_rows($r) > 0) {
-		echo '<h2>Search Results</h2>';
+		// Create a table:
+		echo '<table width="100%" border="0" cellspacing="2" cellpadding="2" align="center">
+			<tr>
+				<td align="left" width="50%"><em>subject</em>:</td>
+
+			</tr>';
+
+		// Fetch each thread:
+		while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+
+			echo '<tr>
+					<td align="left"><a href="read.php?tid=' . $row['thread_id'] . '">' . $row['subject'] . '</a></td>
+
+
+
+
+				</tr>';
+
+		}
+
+		echo '</table>'; // Complete the table.
 	} else {
 		echo '<p>No results found.</p>';
 	}

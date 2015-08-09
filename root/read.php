@@ -1,7 +1,7 @@
 <?php # Script 17.5 - read.php
 // This page shows the messages in a thread.
 
-include ('session.php');
+session_start();
 $page_title = 'read';
 include ('header.html');
 // Need the database connection:
@@ -22,7 +22,7 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	//}
 
 	// Run the query:
-	$q = "SELECT t.subject, p.message, name FROM threads AS t LEFT JOIN posts AS p USING (thread_id) INNER JOIN users AS u ON p.user_id = u.user_id WHERE t.thread_id = $tid ";
+	$q = "SELECT t.subject, t.body_t, name FROM threads AS t  INNER JOIN users AS u ON t.user_id = u.user_id  ";
 	$r = mysqli_query($dbc, $q);
 	if (!(mysqli_num_rows($r) > 0)) {
 		$tid = FALSE; // Invalid thread ID!
@@ -44,7 +44,7 @@ if ($tid) { // Get the messages in this thread...
 		}
 
 		// Print the message:
-		echo "<p>{$messages['name']} <br />{$messages['message']}</p><br />\n";
+		echo "<p>{$messages['name']} <br />{$messages['body_t']}</p><br />\n";
 
 	} // End of WHILE loop.
 
