@@ -18,6 +18,7 @@ echo '/><input name="submit" type="submit"  /></p></form>';
 
 if (isset($_GET['terms'])) { // Handle the form.
 
+include ('header2.html');
 	// Clean the terms:
 	$terms = mysqli_real_escape_string($dbc, htmlentities(strip_tags($_GET['terms'])));
 
