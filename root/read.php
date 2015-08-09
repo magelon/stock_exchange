@@ -2,7 +2,7 @@
 // This page shows the messages in a thread.
 
 include ('session.php');
-
+$page_title = 'read';
 include ('header.html');
 // Need the database connection:
 

@@ -18,7 +18,7 @@
 
 // The query for retrieving all the threads in this forum, along with the original user,
 // when the thread was first posted, when it was last replied to, and how many replies it's had:
-$q = "SELECT t.thread_id, t.subject, name, COUNT(post_id) - 1 AS responses FROM threads AS t INNER JOIN posts AS p USING (thread_id) INNER JOIN users AS u ON t.user_id = u.user_id ";
+$q = "SELECT thread_id, subject FROM threads AS t order by t.thread_id ";
 $r = mysqli_query($dbc, $q);
 if (mysqli_num_rows($r) > 0) {
 
@@ -26,9 +26,7 @@ if (mysqli_num_rows($r) > 0) {
 	echo '<table width="100%" border="0" cellspacing="2" cellpadding="2" align="center">
 		<tr>
 			<td align="left" width="50%"><em>subject</em>:</td>
-			<td align="left" width="20%"><em>posted_by</em>:</td>
-			<td align="center" width="10%"><em>replies</em>:</td>
-
+			
 		</tr>';
 
 	// Fetch each thread:
@@ -36,9 +34,9 @@ if (mysqli_num_rows($r) > 0) {
 
 		echo '<tr>
 				<td align="left"><a href="read.php?tid=' . $row['thread_id'] . '">' . $row['subject'] . '</a></td>
-				<td align="left">' . $row['name'] . '</td>
 
-				<td align="center">' . $row['responses'] . '</td>
+
+
 
 			</tr>';
 
