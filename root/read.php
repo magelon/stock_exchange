@@ -26,10 +26,11 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	$q2 ="select t.subject, t.body_t from threads as t where thread_id=$tid ";
 	$r = mysqli_query($dbc, $q);
 	if (!(mysqli_num_rows($r) > 0)) {
+		// condition only have body no posts
 		$r = mysqli_query($dbc,$q2);
 		$messages = mysqli_fetch_array($r, MYSQLI_ASSOC);
-		echo "<h2>{$messages['subject']}</h2>\n<br />{$messages['body_t']}<br />";
-		
+		include('body_t.php');
+
 	}
 
 } // End of isset($_GET['tid']) IF.
@@ -43,17 +44,19 @@ if ($tid) { // Get the messages in this thread...
 
 		// Only need to print the subject once!
 		if (!$printed) {
-			echo "<h2>{$messages['subject']}</h2>\n<br />{$messages['body_t']}<br />";
+			include('body_t.php');
 			$printed = TRUE;
 		}
 
 		// Print the message:
-		echo "<p>{$messages['name']} \n<p>{$messages['message']} \n<hr></p>";
+		echo "<div><p>{$messages['name']} \n</p><p>{$messages['message']} \n</p></div>";
 
 	} // End of WHILE loop.
 
 	// Show the form to post a message:
+
 	include ('includes/post_form.php');
+
 
 } else { // Invalid thread ID!
 	echo '<p>This page has been accessed in error.</p>';

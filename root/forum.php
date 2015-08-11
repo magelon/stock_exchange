@@ -27,8 +27,8 @@ if (mysqli_num_rows($r) > 0) {
 	echo '<table width="100%" border="0" cellspacing="2" cellpadding="2" align="center">
 		<tr>
 			<td align="left" width="50%"><em>subject</em>:</td>
-			<td align="left"><em>writter</em>:</td>
-			
+			<td align="left"><em>editer</em>:</td>
+
 		</tr>';
 
 
