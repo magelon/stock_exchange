@@ -22,8 +22,8 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	//}
 
 	// Run the query:
-	$q = "select t.subject, t.body_t, u.name, p.message from threads as t inner join posts as p using (thread_id) inner join users as u on p.user_id=u.user_id where t.thread_id =$tid  ";
-	$q2 ="select t.subject, t.body_t from threads as t where thread_id=$tid ";
+	$q = "select t.subject, t.body_t, t.value, u.name, p.message from threads as t inner join posts as p using (thread_id) inner join users as u on p.user_id=u.user_id where t.thread_id =$tid  ";
+	$q2 ="select t.subject, t.body_t, t.value from threads as t where thread_id=$tid ";
 	$r = mysqli_query($dbc, $q);
 	if (!(mysqli_num_rows($r) > 0)) {
 		// condition only have body no posts
