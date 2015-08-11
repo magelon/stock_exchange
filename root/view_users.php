@@ -33,18 +33,18 @@ if ($num > 0) { // If it ran OK, display the records.
 	echo '<table align="center" cellspacing="8" cellpadding="4" width="75%">
 	<tr>
 	<td align="left"><b>Name</b></td>
-	<td><td align="left"><b>Balance</b></td>
+	<td align="left"><b>Balance</b></td>
 	<td align="left"><b>Date Registered</b></td>
 	</tr>
 ';
 
 	// Fetch and print all the records:
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-		echo ' <table align="center" cellspacing="8" cellpadding="1" width="75%">
+		echo ' <table align="center" cellspacing="8" cellpadding="4" width="75%">
 		<tr>
 		<td align="left">' . $row['name'] .'</td>
-		<td >' . $row['balance'] . '</td>
-		<td align="right">' . $row['dr'] . '</td>
+		<td align="left">' . $row['balance'] . '</td>
+		<td align="left">' . $row['dr'] . '</td>
 		 </tr>
 		';
 	}

@@ -18,29 +18,34 @@
 
 // The query for retrieving all the threads in this forum, along with the original user,
 // when the thread was first posted, when it was last replied to, and how many replies it's had:
-$q = "SELECT thread_id, subject FROM threads AS t order by t.thread_id ";
+$q = "SELECT t.thread_id, t.subject,name FROM threads AS t left join users  on users.user_id= t.user_id order by t.thread_id ";
 $r = mysqli_query($dbc, $q);
+
 if (mysqli_num_rows($r) > 0) {
 
 	// Create a table:
 	echo '<table width="100%" border="0" cellspacing="2" cellpadding="2" align="center">
 		<tr>
 			<td align="left" width="50%"><em>subject</em>:</td>
+			<td align="left"><em>writter</em>:</td>
 			
 		</tr>';
+
+
 
 	// Fetch each thread:
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
+
 		echo '<tr>
 				<td align="left"><a href="read.php?tid=' . $row['thread_id'] . '">' . $row['subject'] . '</a></td>
+				<td align="left"> '.$row['name'].'</td>
+				</tr>
+				';
+		}
 
 
 
-
-			</tr>';
-
-	}
 
 	echo '</table>'; // Complete the table.
 

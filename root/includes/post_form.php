@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id'])) {
 	} // End of $tid IF.
 
 	// Create the body textarea:
-	echo '<p><em>body</em>: <textarea name="body" rows="10" cols="60">';
+	echo '<p><em>body</em>: <textarea name="body" rows="4" cols="40">';
 
 	if (isset($body)) {
 		echo $body;
