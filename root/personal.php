@@ -4,7 +4,7 @@
 require('session.php');
 
 
-$page_title = 'Change Your Password';
+$page_title = 'Change Your personal';
 include ('header.html');
 
 // Check for form submission:
