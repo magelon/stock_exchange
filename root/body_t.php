@@ -12,6 +12,12 @@ echo "
   </div>
 
 </div>
+
+";
+?>
+<?php
+if (isset($_SESSION['user_id'])) {
+echo "
 <div class=\"row\">
   <div class=\"col-md-2\">
   <form>
@@ -19,5 +25,6 @@ echo "
     </div>
     </form>
 </div>
-";
-?>
+ ";
+}
+  ?>

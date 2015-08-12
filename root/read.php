@@ -4,7 +4,7 @@
 session_start();
 $page_title = 'read';
 include ('header.html');
-// Need the database connection:
+
 
 
 // Check for a thread ID...
@@ -63,3 +63,4 @@ if ($tid) { // Get the messages in this thread...
 }
 
 ?>
+<?php include ('includes/footer.html'); ?>

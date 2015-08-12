@@ -18,7 +18,7 @@ if (isset($_SESSION['user_id'])) {
 	if (isset($tid) && $tid) {
 
 		// Print a caption:
-		echo '<h3>post_a_reply</h3>';
+		
 
 		// Add the thread ID as a hidden input:
 		echo '<input name="tid" type="hidden" value="' . $tid . '" />';
@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id'])) {
 	} // End of $tid IF.
 
 	// Create the body textarea:
-	echo '<p><em>body</em>: <textarea name="body" rows="4" cols="40">';
+	echo '<p> <textarea name="body" rows="4" cols="40">';
 
 	if (isset($body)) {
 		echo $body;

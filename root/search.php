@@ -1,7 +1,7 @@
 <?php # Script 17.8 - search.php
 // This page displays and handles a search form.
 
-// Include the HTML header:
+// need database connection
 require ('../mysqli_connect.php');
 
 // Show the search form:
