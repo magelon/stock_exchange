@@ -1,4 +1,4 @@
-<?php # Script 17.6 - post_form.php
+<?php # Script 17.6 - post_form_t.php
 // This page shows the form for posting messages.
 // It's included by other pages, never called directly.
 
@@ -26,7 +26,7 @@ if (isset($_SESSION['user_id'])) {
 	} else { // New thread
 
 		// Print a caption:
-		echo '<h3>new_thread</h3>';
+		echo '<h3>new_object</h3>';
 
 		// Create subject input:
 		echo '<p><em>subject</em>: <input name="subject" type="text" size="60" maxlength="100" ';
