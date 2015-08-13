@@ -12,19 +12,16 @@
 if (isset($_SESSION['user_id'])) {
 
 	// Display the form:
-
+if (isset($tid) && $tid) {
 	echo '<form  action="post_r.php " method="post" accept-charset="utf-8">';
 
-	// If on read.php...
-	if (isset($tid) && $tid) {
 
-		// Print a caption:
 
 
 		// Add the thread ID as a hidden input:
-		echo '<input name="tid" type="hidden" value="' . $tid . '" />';
-
-	}
+		echo '<input name="pid" type="hidden" value="' . $col_post_id . '" />';
+		echo '<input name="tid" type="hidden" value="'.$tid.'">';
+}
 
 	// Create the body textarea:
 	echo '<p> <textarea name="body" rows="4" cols="40">';
