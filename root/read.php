@@ -22,8 +22,40 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	//}
 
 	// Run the query:
-	$q = "select t.subject, t.body_t, t.value, u.name, p.message,p.post_id,p.parent_id from threads as t inner join posts as p using (thread_id) inner join users as u on p.user_id=u.user_id where t.thread_id =$tid order by p.post_id ";
-	$q2 ="select t.subject, t.body_t, t.value from threads as t where thread_id=$tid ";
+	$q = "select t.subject, t.body_t, t.value, u.name, p.message,p.post_id
+	from threads as t
+	inner join posts as p using (thread_id)
+	inner join users as u on p.user_id=u.user_id
+	where t.thread_id =$tid
+	order by p.post_id asc
+	";
+
+	$q2 ="select t.subject, t.body_t, t.value
+	from threads as t
+	where thread_id=$tid
+	";
+
+$q4="create or replace view repview as
+select p.message, u.name,p.post_id,p.parent_id
+from threads as t
+inner join posts as p using(thread_id)
+inner join users as u on p.user_id=u.user_id
+where t.thread_id=$tid
+	";
+
+$q5="create or replace view reppview as
+select a.message,a.name,a.parent_id
+from repview as a
+inner join posts as b on a.parent_id=b.post_id
+	";
+
+$q7="
+select name,message,post_id
+from repview where parent_id=0
+";
+
+	//execute the query
+
 	$r = mysqli_query($dbc, $q);
 	if (!(mysqli_num_rows($r) > 0)) {
 		// condition only have body no posts
@@ -38,7 +70,9 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 if ($tid) { // Get the messages in this thread...
 
 	$printed = FALSE; // Flag variable.
-
+	mysqli_query($dbc,$q4);
+	mysqli_query($dbc,$q5);
+	$r7=mysqli_query($dbc,$q7);
 	// Fetch each:
 	while ($messages = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
@@ -48,19 +82,41 @@ if ($tid) { // Get the messages in this thread...
 			$printed = TRUE;
 		}
 
-		// Print the message:
-		echo "<div><p>{$messages['name']} \n</p><p>{$messages['message']} \n</p></div>";
+
+
+
+
+
+
+while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
+		$postid =$messages1['post_id'];
+
+		$q6="
+		select name,message
+		from reppview where parent_id=$postid
+			";
+		$r3 = mysqli_query($dbc, $q6);
+
+			echo "<div><p>{$messages1['name']} :{$messages1['message']}</p>";
+							while ($messages2=mysqli_fetch_array($r3,MYSQLI_ASSOC)){
+								echo"<p>{$messages2['name']}:{$messages2['message']}</p>";
+							}
+
+			echo"	</div>";
+
+
+
 
 		//check if can reply
 		if (isset($_SESSION['user_id'])){
 
 		//<a href="read_r.php?tid= '.$messages['post_id'].'">reply</a>
-		$col_post_id=$messages['post_id'];
+		$col_post_id=$messages1['post_id'];
 ?>
 
 <?php
 echo"
-<a class=\"btn btn-primary\" role=\"button\" data-toggle=\"collapse\" href=\"#$col_post_id\" aria-expanded=\"false\" aria-controls=\"$col_post_id\">
+<a  data-toggle=\"collapse\" href=\"#$col_post_id\" aria-expanded=\"false\" aria-controls=\"$col_post_id\">
 ";
 ?>
   reply
@@ -86,10 +142,8 @@ echo"
 </div>
 
 <?php
-		//check parent_id
-		if($messages['parent_id']!=0){
-			echo"have child";
-		}
+
+}
 
 	} // End of WHILE loop.
 
