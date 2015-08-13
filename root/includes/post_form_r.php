@@ -12,10 +12,8 @@
 if (isset($_SESSION['user_id'])) {
 
 	// Display the form:
-	
 
-
-	echo '<form  action="post.php" method="post" accept-charset="utf-8">';
+	echo '<form  action=" " method="post" accept-charset="utf-8">';
 
 	// If on read.php...
 	if (isset($tid) && $tid) {
@@ -42,9 +40,6 @@ if (isset($_SESSION['user_id'])) {
 	</form>';
 
 
-
-} else {
-	echo '<p>You must be logged in to post messages.</p>';
 }
 
 ?>

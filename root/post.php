@@ -55,7 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 			}
 		} // No $tid.
 
-		if ($tid) { // Add this to the replies table:
+		if ($tid) {
+			// Add this to the replies table:
+			//add to parent reply: update posts set parent_id =' 2' where post_id='3';
 			$q = "INSERT INTO posts (thread_id, user_id, message) VALUES ($tid, {$_SESSION['user_id']}, '" . mysqli_real_escape_string($dbc, $body) . "')";
 			$r = mysqli_query($dbc, $q);
 			if (mysqli_affected_rows($dbc) == 1) {

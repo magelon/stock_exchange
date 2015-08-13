@@ -39,4 +39,6 @@ if (isset($errors) && !empty($errors)) {
 
 </div>
 
+
+
 <?php include ('includes/footer.html'); ?>
