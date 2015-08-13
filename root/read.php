@@ -55,15 +55,27 @@ if ($tid) { // Get the messages in this thread...
 		if (isset($_SESSION['user_id'])){
 
 		//<a href="read_r.php?tid= '.$messages['post_id'].'">reply</a>
+		$col_post_id=$messages['post_id'];
+?>
+
+<?php
+echo"
+<a class=\"btn btn-primary\" role=\"button\" data-toggle=\"collapse\" href=\"#$col_post_id\" aria-expanded=\"false\" aria-controls=\"$col_post_id\">
+";
+?>
+  reply
+</a>
+
+<?php
+echo"
+<div class=\"collapse\" id=\"$col_post_id\">
+";
 ?>
 
 
-<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  Link with href
-</a>
 
-<div class="collapse" id="collapseExample">
-<div class="well">
+
+<div >
 
 	<?php
 		include('includes/post_form_r.php');

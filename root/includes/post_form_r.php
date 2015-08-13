@@ -1,4 +1,4 @@
-<?php # Script 17.6 - post_form.php
+<?php # Script 17.6 - post_form_r.php
 // This page shows the form for posting messages.
 // It's included by other pages, never called directly.
 
@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
 
 	// Display the form:
 
-	echo '<form  action=" " method="post" accept-charset="utf-8">';
+	echo '<form  action="post_r.php " method="post" accept-charset="utf-8">';
 
 	// If on read.php...
 	if (isset($tid) && $tid) {
