@@ -89,10 +89,6 @@ if ($tid) { // Get the messages in this thread...
 
 
 
-
-
-
-
 while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 		$postid =$messages1['post_id'];
 
@@ -100,6 +96,7 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 		select name,message
 		from reppview where parent_id=$postid
 			";
+			
 		$r3 = mysqli_query($dbc, $q6);
 
 			echo "<div><p>{$messages1['name']} :{$messages1['message']}</p>";
