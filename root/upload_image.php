@@ -1,5 +1,14 @@
 
+
+
 <?php # Script 11.2 - upload_image.php
+
+
+session_start(); // Start the session.
+// Include the header:
+$page_title = 'upload';
+include ('header.html');
+
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,8 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$allowed = array ('image/pjpeg', 'image/jpeg', 'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png', 'image/x-png');
 		if (in_array($_FILES['upload']['type'], $allowed)) {
 
+			//oldfilename
+			$old_filename =$_FILES['upload']['name'];
+
+			//a random number_form 1-9999
+			$random_digit=rand(0000,9999);
+
+			//new name
+			$filename=$random_digit.$old_filename;
+
 			// Move the file over.
-			if (move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/{$_FILES['upload']['name']}")) {
+			if (move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/{$filename}")) {
 				echo '<p><em>The file has been uploaded!</em></p>';
 			} // End of move... IF.
 
@@ -70,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	<input type="hidden" name="MAX_FILE_SIZE" value="1524288" />
 
-	<fieldset><legend>Select a JPEG or PNG image of 512KB or smaller to be uploaded:</legend>
+	<fieldset><legend>Select a JPEG or PNG image of 1024KB or smaller to be uploaded:</legend>
 
 	<p><b>File:</b> <input type="file" name="upload" /></p>
 
@@ -78,3 +96,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<div align="center"><input type="submit" name="submit" value="Submit" /></div>
 
 </form>
+
+<?php include ('includes/footer.html'); ?>
