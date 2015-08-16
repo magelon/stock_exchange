@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html  lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Images</title>
-	<script type="text/javascript" charset="utf-8" src="js/function.js"></script>
-</head>
-<body>
+<?php
+session_start();
+// Start the session.
+
+$page_title = 'images';
+
+// Include the header:
+include ('header.html');
+
+?>
+
+
 <p>Click on an image to view it in a separate window.</p>
 <ul>
 <?php # Script 11.4 - images.php
