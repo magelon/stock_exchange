@@ -1,4 +1,5 @@
 <?php
+
 echo "
 <div class=\"row\">
 <h2 class=\"col-md-4\">{$messages['subject']}</h2>\n

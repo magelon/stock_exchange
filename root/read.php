@@ -2,18 +2,21 @@
 // This page shows the messages in a thread.
 
 //start session read session information
+
 session_start();
 
 
 $page_title = 'read';
 
-//need header
+//need header.html
 include ('header.html');
 
 
 
-// Check for a thread ID...
+
 $tid = FALSE;
+
+// Check for a thread ID...
 if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('min_range' => 1)) ) {
 
 	// Create a shorthand version of the thread ID:
@@ -96,7 +99,7 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 		select name,message
 		from reppview where parent_id=$postid
 			";
-			
+
 		$r3 = mysqli_query($dbc, $q6);
 
 			echo "<div><p>{$messages1['name']} :{$messages1['message']}</p>";
