@@ -20,14 +20,25 @@
 	    </div>
 			<?php
 
-			session_start(); // Start the session.
+			// Start the session.
+			session_start();
+			 
 			// Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
-			echo '<a href="logout.php">Logout</a>
-
-			<button type="button" class="btn btn-default navbar-btn"><a href="post_t.php">only for login</a></button>
-			<button type="button" class="btn btn-default navbar-btn"><a href="password.php">password change</a></button>
-			<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> ';
+			echo '
+			<div class="dropdown">
+        <ul class="nav navbar-nav">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">for login users
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="upload_image.php">upload image</a></li>
+      <li><a href="images.php">view pictures</a></li>
+      <li><a href="post_t.php">new post</a></li>
+      <li><a href="password.php">change pass</a></li>
+      <li><a href="logout.php">logout</a></li>
+    </ul>
+  </ul>
+  </div><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> ';
 			echo " {$_SESSION['balance']} ";
 
 			if($_SESSION['role']=='admin'){

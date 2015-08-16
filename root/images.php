@@ -22,8 +22,15 @@ $files = scandir($dir); // Read all the images into an array.
 // Display each image caption as a link to the JavaScript function:
 foreach ($files as $image) {
 
-	if (substr($image, 0, 1) != '.') { // Ignore anything starting with a period.
+	if (substr($image, 0, 1) != '.') {
+		// Ignore anything starting with a period.
+$q="select picture from users where user_id={$_SESSION['user_id']}";
 
+$r=mysqli_query($dbc,$q);
+
+$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+
+if($row['picture']==$image){
 		// Get the image's size in pixels:
 		$image_size = getimagesize ("$dir/$image");
 
@@ -32,7 +39,7 @@ foreach ($files as $image) {
 
 		// Print the information:
 		echo "<li><a href=\"javascript:create_window('$image_name',$image_size[0],$image_size[1])\">$image</a></li>\n";
-
+		}
 	} // End of the IF.
 
 } // End of the foreach loop.
