@@ -26,7 +26,12 @@ header('Content-Type:text/html; charset=utf-8');
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="index.php">
-	        <img alt="Brand" src="uploads/umaru00.png">
+          <?php
+          include('get_img.php');
+          echo"
+	        <img alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
+          ";
+          ?>
 	      </a>
 	    </div>
 
@@ -54,13 +59,12 @@ header('Content-Type:text/html; charset=utf-8');
     </ul>
   </ul>
   </div>
-  <div>
-	   <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-   </div>
+
+     <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
 
    ';
 
-      echo " {$_SESSION['balance']} ";
+echo " {$_SESSION['balance']} ";
 
 			if($_SESSION['role']=='admin'){
 					echo '
@@ -74,8 +78,10 @@ header('Content-Type:text/html; charset=utf-8');
         </ul>
       </ul>
       </div>
+
           ';
 				}
+
 		}
 			else {
 

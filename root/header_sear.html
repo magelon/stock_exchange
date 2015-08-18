@@ -15,13 +15,17 @@
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="index.php">
-	        <img alt="Brand" src="uploads/umaru00.png">
+					<?php
+					// Start the session.
+					session_start();
+					include('get_img.php');
+					echo"
+					<img alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
+					";
+					?>
 	      </a>
 	    </div>
 			<?php
-
-			// Start the session.
-			session_start();
 
 			// Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
@@ -39,7 +43,8 @@
       <li><a href="logout.php">logout</a></li>
     </ul>
   </ul>
-  </div><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> ';
+  </div>
+	<span class="glyphicon glyphicon-usd" aria-hidden="true"></span> ';
 			echo " {$_SESSION['balance']} ";
 
 			if($_SESSION['role']=='admin'){

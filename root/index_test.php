@@ -21,10 +21,8 @@ if (isset($errors) && !empty($errors)) {
 
 
 ?>
-<?php
-include('get_img.php');
-?>
 
+<img class="media-object" src="http://localhost/stock_exchange/root/show_image_admin.php?image=1133be9df7a920963c870bda6f887c139ebe_m.jpg" HEIGHT="40" WIDTH="40" BORDER="0" alt="...">
 
 <div class="media">
 	<div class="media-left">
