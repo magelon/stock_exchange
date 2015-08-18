@@ -1,8 +1,11 @@
 <?php
 
-session_start(); // Start the session.
+session_start();
+// Start the session.
+
 // Include the header:
 $page_title = 'index';
+
 include ('header.html');
 
 

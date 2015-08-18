@@ -12,34 +12,34 @@
 if (isset($_SESSION['user_id'])) {
 
 	// Display the form:
-	echo '<form action="post_t.php" method="post" accept-charset="utf-8">';
+	echo '<form action="post_edit.php" method="post" accept-charset="utf-8">';
 
 	  // New thread
 
 		// Print a caption:
-		echo '<h3>new_object</h3>';
+		echo '<h3>edit_object</h3>';
 
 		// Create subject input:
 		echo '<p><em>subject</em>: <input name="subject" type="text" size="60" maxlength="100" ';
 
-		// Check for existing value:
-		if (isset($subject)) {
-			echo "value=\"$subject\" ";
-		}
+
+			echo "value= {$row['subject']} ";
+
 
 		echo '/></p>';
 
-
+		//define the tid
 
 	// Create the body textarea:
 	echo '<p><em>body</em>: <textarea name="body" rows="10" cols="60">';
 
-	if (isset($bodyt)) {
-		echo $bodyt;
-	}
+
+		echo $row['body_t'];
+
 
 	echo '</textarea></p>';
-
+	//tid
+	echo '<input name="tid" type="hidden" value="'.$tid.'">';
 	// Finish the form:
 	echo '<input name="submit" type="submit" />
 	</form>';

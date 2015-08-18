@@ -1,5 +1,5 @@
-<?php # Script 17.7 - post.php
-// This page handles the message post.
+<?php # Script 17.7 - post_t.php
+// This page new a message post.
 // It also displays the form if creating a new thread.
 $page_title = 'post_t';
 include ('session.php');
