@@ -16,7 +16,7 @@ header('Content-Type:text/html; charset=utf-8');
   <script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/img.js"></script>
-
+  <script type="text/javascript" charset="utf-8" src="js/img_admin.js"></script>
 
 	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -53,13 +53,27 @@ header('Content-Type:text/html; charset=utf-8');
     </ul>
   </ul>
   </div>
+  <div>
+	   <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+   </div>
 
-	   <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> ';
+   ';
 
       echo " {$_SESSION['balance']} ";
 
 			if($_SESSION['role']=='admin'){
-					echo '<button type="button" class="btn btn-default navbar-btn"><a href="view_users.php ">admin</a></button>';
+					echo '
+          <div class="dropdown">
+            <ul class="nav navbar-nav">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">for admin
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="view_users.php ">view_users</a></li>
+          <li><a href="images.php">view pictures</a></li>
+        </ul>
+      </ul>
+      </div>
+          ';
 				}
 		}
 			else {

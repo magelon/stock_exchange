@@ -22,7 +22,7 @@
 
 			// Start the session.
 			session_start();
-			 
+
 			// Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
 			echo '
@@ -42,7 +42,18 @@
 			echo " {$_SESSION['balance']} ";
 
 			if($_SESSION['role']=='admin'){
-					echo '<button type="button" class="btn btn-default navbar-btn"><a href="view_users.php ">admin</a></button>';
+					echo '
+					<div class="dropdown">
+            <ul class="nav navbar-nav">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">for admin
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="view_users.php ">view_users</a></li>
+          <li><a href="images_admin.php">view pictures</a></li>
+        </ul>
+      </ul>
+      </div>
+				';
 				}
 		}
 			else {
