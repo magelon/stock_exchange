@@ -40,7 +40,7 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	";
 
 $q4="create or replace view repview as
-select p.message, u.name,p.post_id,p.parent_id
+select p.message, u.name,u.user_id,p.post_id,p.parent_id
 from threads as t
 inner join posts as p using(thread_id)
 inner join users as u on p.user_id=u.user_id
@@ -48,13 +48,13 @@ where t.thread_id=$tid
 	";
 
 $q5="create or replace view reppview as
-select a.message,a.name,a.parent_id
+select a.message,a.name,a.user_id,a.parent_id
 from repview as a
 inner join posts as b on a.parent_id=b.post_id
 	";
 
 $q7="
-select name,message,post_id
+select name,user_id,message,post_id
 from repview where parent_id=0
 ";
 
@@ -88,17 +88,33 @@ if ($tid) { // Get the messages in this thread...
 
 while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 		$postid =$messages1['post_id'];
-
+		include('get_img_posts.php');
 		$q6="
-		select name,message
+		select name,user_id,message
 		from reppview where parent_id=$postid
 			";
 
 		$r3 = mysqli_query($dbc, $q6);
 
-			echo "<div><p>{$messages1['name']} :{$messages1['message']}</p>";
+
+
+
+
+			echo "<div>
+
+			<p>	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
+				{$messages1['name']} :{$messages1['message']}</p>
+
+			";
 							while ($messages2=mysqli_fetch_array($r3,MYSQLI_ASSOC)){
-								echo"<p>{$messages2['name']}:{$messages2['message']}</p>";
+
+								include('get_img_reply.php');
+
+								echo"
+								<p>	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
+									{$messages2['name']}:{$messages2['message']}</p>
+
+								";
 							}
 
 			echo"	</div>";
