@@ -9,15 +9,15 @@ $url = rtrim($url, '/\\');
 // Add the page:
 $page='show_image.php';
 
-if(isset($_SESSION['user_id'])){
-  
-  $q="select picture from users where user_id={$_SESSION['user_id']}";
+if(isset($tid)){
+  //query of threads picture
+  $qtp="select picture_t from threads where thread_id=$tid";
 
-  $r=mysqli_query($dbc,$q);
+  $rtp=mysqli_query($dbc,$qtp);
 
-  $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+  $row_tp = mysqli_fetch_array($rtp, MYSQLI_ASSOC);
 
-$url .= '/' .$page.'?'.'image='.$row['picture'];
+$url .= '/' .$page.'?'.'image='.$row_tp['picture_t'];
 }else{
   $url.='/'.'uploads/umaru00.png';
 }

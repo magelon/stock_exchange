@@ -25,7 +25,7 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	//}
 
 	// Run the query:
-	$q ="select subject, body_t, value
+	$q ="select subject, body_t, picture_t
 	from threads
 	where thread_id=$tid
 	";

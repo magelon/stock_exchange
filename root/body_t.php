@@ -14,6 +14,9 @@ echo "
   <div class=\"col-md-4\">{$messages['body_t']}
   </div>
 
+  <img alt=\"Brand\" src=\" $url \" HEIGHT=\"60\" WIDTH=\"40\" BORDER=\"0\">
+
+
 </div>
 
 ";

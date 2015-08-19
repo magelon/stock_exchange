@@ -12,7 +12,7 @@
 if (isset($_SESSION['user_id'])) {
 
 	// Display the form:
-	echo '<form action="post_edit.php" method="post" accept-charset="utf-8">';
+	echo '<form enctype="multipart/form-data" action="post_edit.php" method="post" accept-charset="utf-8">';
 
 	  // New thread
 
@@ -41,6 +41,18 @@ if (isset($_SESSION['user_id'])) {
 	//tid
 	echo '<input name="tid" type="hidden" value="'.$tid.'">';
 	// Finish the form:
+	echo'
+
+	<input type="hidden" name="MAX_FILE_SIZE" value="1524288" />
+
+	<fieldset><legend>Select a JPEG or PNG image of 1024KB or smaller to be uploaded:</legend>
+
+	<p><b>File:</b> <input type="file" name="upload" /></p>
+
+	</fieldset>
+
+	';
+
 	echo '<input name="submit" type="submit" />
 	</form>';
 
