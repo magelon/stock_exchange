@@ -1,5 +1,5 @@
 <?php
-
+//for tests
 session_start();
 // Start the session.
 

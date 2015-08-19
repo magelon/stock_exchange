@@ -8,8 +8,6 @@ $page_title = 'images';
 include ('header.html');
 
 ?>
-
-
 <p>Click on an image to view it in a separate window.</p>
 <ul>
 <?php # Script 11.4 - images.php

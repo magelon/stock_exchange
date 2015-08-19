@@ -1,9 +1,6 @@
 <?php # Script 9.7 - password.php
 // This page lets a user change their password.
-
 require('session.php');
-
-
 $page_title = 'Change Your Password';
 include ('header.html');
 

@@ -1,20 +1,8 @@
 <?php # Script 17.4 - forum.php
 // This page shows the threads in a forum.
 
-
-// Need the database connection:
-
 // Retrieve all the messages in this forum...
 
-// If the user is logged in and has chosen a time zone,
-// use that to convert the dates and times:
-//if (isset($_SESSION['user_tz'])) {
-//	$first = "CONVERT_TZ(p.posted_on, 'UTC', '{$_SESSION['user_tz']}')";
-//	$last = "CONVERT_TZ(p.posted_on, 'UTC', '{$_SESSION['user_tz']}')";
-//} else {
-//	$first = 'p.posted_on';
-//	$last = 'p.posted_on';
-//}
 
 // The query for retrieving all the threads in this forum, along with the original user,
 // when the thread was first posted, when it was last replied to, and how many replies it's had:
@@ -31,8 +19,6 @@ if (mysqli_num_rows($r) > 0) {
 
 		</tr>';
 
-
-
 	// Fetch each thread:
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
@@ -43,9 +29,6 @@ if (mysqli_num_rows($r) > 0) {
 				</tr>
 				';
 		}
-
-
-
 
 	echo '</table>'; // Complete the table.
 

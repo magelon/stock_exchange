@@ -6,13 +6,9 @@ header('Content-Type:text/html; charset=utf-8');
 <head>
 	<title><?php echo $page_title; ?></title>
 	<!-- Latest compiled and minified CSS -->
-
-
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- Latest compiled and minified JavaScript -->
-
 	<!--need jquery and bootstrap script -->
-
   <script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/img.js"></script>
@@ -34,15 +30,12 @@ header('Content-Type:text/html; charset=utf-8');
           ?>
 	      </a>
 	    </div>
-
-
-
-
 			<?php
-
       // Create a login/logout link:
 
 			if (isset($_SESSION['user_id'])) {
+
+      //a drop down menu
 
 			echo '
       <div class="dropdown">
@@ -59,14 +52,13 @@ header('Content-Type:text/html; charset=utf-8');
     </ul>
   </ul>
   </div>
-
      <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-
    ';
 
 echo " {$_SESSION['balance']} ";
 
 			if($_SESSION['role']=='admin'){
+        //a drop down menu for admin
 					echo '
           <div class="dropdown">
             <ul class="nav navbar-nav">
@@ -84,7 +76,7 @@ echo " {$_SESSION['balance']} ";
 
 		}
 			else {
-
+        //buttons for outside people
 			echo '
 			<button type="button" class="btn btn-default navbar-btn">	<a href="login.php">Login</a></button>
 		  <button type="button" class="btn btn-default navbar-btn"><a href="register.php">register</a></button>
@@ -92,9 +84,6 @@ echo " {$_SESSION['balance']} ";
 			}
 
 			?>
-
-
-
 	  </div>
 	</nav>
 

@@ -6,8 +6,6 @@ $url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
 // Remove any trailing slashes:
 $url = rtrim($url, '/\\');
 
-
-
 // Add the page:
 $page='show_image.php';
 

@@ -1,12 +1,8 @@
 <?php # Script 9.7 - password.php
 // This page lets a user change their password.
-
 require('session.php');
-
-
 $page_title = 'Change Your personal';
 include ('header.html');
-
 // Check for form submission:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

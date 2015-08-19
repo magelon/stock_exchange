@@ -5,14 +5,10 @@
 
 session_start();
 
-
 $page_title = 'read';
 
 //need header.html
 include ('header.html');
-
-
-
 
 $tid = FALSE;
 
@@ -90,8 +86,6 @@ if ($tid) { // Get the messages in this thread...
 			$printed = TRUE;
 		}
 
-
-
 while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 		$postid =$messages1['post_id'];
 
@@ -108,9 +102,6 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 							}
 
 			echo"	</div>";
-
-
-
 
 		//check if can reply
 		if (isset($_SESSION['user_id'])){
@@ -132,9 +123,6 @@ echo"
 <div class=\"collapse\" id=\"$col_post_id\">
 ";
 ?>
-
-
-
 
 <div >
 

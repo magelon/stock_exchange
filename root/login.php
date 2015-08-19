@@ -13,8 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	list ($check, $data) = check_login($dbc, $_POST['email'], $_POST['pass']);
 
 	if ($check) { // OK!
-
-
 		// Set the cookies:
 		//setcookie ('user_id', $data['user_id']);
 		//setcookie ('name', $data['name']);

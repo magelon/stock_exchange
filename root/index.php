@@ -8,7 +8,6 @@ $page_title = 'index';
 
 include ('header.html');
 
-
 // Print any error messages, if they exist:
 if (isset($errors) && !empty($errors)) {
 	echo '<h1>Error!</h1>
@@ -19,12 +18,10 @@ if (isset($errors) && !empty($errors)) {
 	echo '</p><p>Please try again.</p>';
 }
 
-
 ?>
 <?php
 include('get_img.php');
 ?>
-
 
 <div class="media">
 	<div class="media-left">
@@ -41,9 +38,6 @@ include('get_img.php');
 </div>
 <hr>
 
-
 </div>
-
-
 
 <?php include ('includes/footer.html'); ?>
