@@ -1,4 +1,5 @@
 <?php
+//this script is the body of post messages
 
 echo "
 <div class=\"row\">
