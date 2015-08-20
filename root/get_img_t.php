@@ -1,10 +1,10 @@
 <?php
 // Start defining the URL...
 // URL is http:// plus the host name plus the current directory:
-$url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
+$url_t = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
 
 // Remove any trailing slashes:
-$url = rtrim($url, '/\\');
+$url_t = rtrim($url_t, '/\\');
 
 // Add the page:
 $page='show_image.php';
@@ -17,8 +17,8 @@ if(isset($tid)){
 
   $row_tp = mysqli_fetch_array($rtp, MYSQLI_ASSOC);
 
-$url .= '/' .$page.'?'.'image='.$row_tp['picture_t'];
+$url_t .= '/' .$page.'?'.'image='.$row_tp['picture_t'];
 }else{
-  $url.='/'.'uploads/umaru00.png';
+  $url_t.='/'.'uploads/umaru00.png';
 }
 ?>
