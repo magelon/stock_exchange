@@ -104,9 +104,9 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 
 
 
-			echo "<div>
+			echo "<div id=\"replys\">
 
-			<p>	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
+			<p id=\"replys1\">	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
 				{$messages1['name']} :{$messages1['message']}</p>
 
 			";
