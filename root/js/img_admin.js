@@ -17,7 +17,7 @@ function create_window (image, width, height) {
 	var specs = "location=no, scrollbars=no, menubars=no, toolbars=no, resizable=yes, left=0, top=0, width=" + width + ", height=" + height;
 
 	// Set the URL:
-	var url = "show_image_admin.php?image=" + image;
+	var url = "show_image.php?image=" + image;
 
 	// Create the pop-up window:
 	popup = window.open(url, "ImageWindow", specs);

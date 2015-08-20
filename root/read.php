@@ -65,6 +65,7 @@ from repview where parent_id=0
 		// condition only have body no posts
 		$r = mysqli_query($dbc,$q2);
 		$messages = mysqli_fetch_array($r, MYSQLI_ASSOC);
+		include('get_img_t.php');
 		include('body_t.php');
 
 	}

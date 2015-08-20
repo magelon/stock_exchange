@@ -6,7 +6,7 @@ echo "
 <h2 class=\"col-md-4\">{$messages['subject']}</h2>\n
   <h3 class=\"col-md-8\">
 
-  value:  {$messages['value']}   value_each:
+  <!-- value:  {$messages['value']}   value_each:-->
   </h3>
 <br />
 </div>
@@ -14,7 +14,7 @@ echo "
   <div class=\"col-md-4\">{$messages['body_t']}
   </div>
 
-  <img src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"40\" BORDER=\"0\">
+  <img src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">
 
 
 </div>
@@ -23,6 +23,7 @@ echo "
 ?>
 <?php
 if (isset($_SESSION['user_id'])) {
+/*
 echo "
 <div class=\"row\">
 
@@ -83,5 +84,6 @@ echo "
   </div>
 </div>
  ";
+ */
 }
   ?>
