@@ -20,3 +20,9 @@ body{
   left: 10px;
     top: 10px;
 }
+
+  #leftside{
+    float:left;
+    display:block;
+    position:relative;
+  }
