@@ -3,21 +3,17 @@
 
 echo "
 <div class=\"row\">
-<h2 class=\"col-md-4\">{$messages['subject']}</h2>\n
-  <h3 class=\"col-md-8\">
-
+<h1 class=\"col-md-4\">{$messages['subject']}</h1>
+  <h2>
   <!-- value:  {$messages['value']}   value_each:-->
-  </h3>
-<br />
+  </h2>
 </div>
 <div class=\"row\">
-  <div class=\"col-md-4\">{$messages['body_t']}
+<img id=\"t_img\" src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">
+
+  {$messages['body_t']}
+
   </div>
-
-  <img src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">
-
-
-</div>
 
 ";
 ?>

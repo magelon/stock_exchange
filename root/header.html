@@ -18,7 +18,8 @@ header('Content-Type:text/html; charset=utf-8');
 	<link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body>
+<body >
+  
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -53,10 +54,10 @@ header('Content-Type:text/html; charset=utf-8');
     </ul>
   </ul>
   </div>
-     <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-   ';
 
-echo " {$_SESSION['balance']} ";
+
+
+   ';
 
 			if($_SESSION['role']=='admin'){
         //a drop down menu for admin
@@ -83,8 +84,12 @@ echo " {$_SESSION['balance']} ";
 		  <button type="button" class="btn btn-default navbar-btn"><a href="register.php">register</a></button>
           ';
 			}
+      if (isset($_SESSION['user_id'])) {
+      echo"<span class=\"glyphicon glyphicon-usd\" aria-hidden=\"true\"></span>";
+      echo " {$_SESSION['balance']} ";
+    }
+      ?>
 
-			?>
 	  </div>
 	</nav>
 
