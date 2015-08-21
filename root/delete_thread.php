@@ -24,41 +24,20 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 	//	$posted = 'p.posted_on';
 	//}
 
-	// write the query:
-	//query delete threads
+	// Run the query:
 	$q_delete_thread="delete
 	from threads
 	where thread_id=$tid
 	";
 
-//query delete posts
 	$q_delete_posts="
 	delete from posts
 	where thread_id=$tid
 	";
-
-	$q_subtracte="
-	update users
-	set balance=balance-10
-	where user_id={$_SESSION['user_id']}
-	";
 	//execute the query
 	$r_d_t = mysqli_query($dbc, $q_delete_thread);
-
-	if (mysqli_affected_rows($dbc) == 1) {
-		echo'threads deleted';
-	}
-
 	$r_d_p = mysqli_query($dbc,$q_delete_posts);
 
-	if (mysqli_affected_rows($dbc) == 1) {
-		echo'posts deleted';
-	}
-
-	$r_subtracte= mysqli_query($bdc,$q_subtracte);
-	if (mysqli_affected_rows($dbc) == 1) {
-		echo'balance subtracted';
-	}
 
 }
 

@@ -10,9 +10,9 @@ echo "
 </div>
 <div class=\"row\">
 <img id=\"t_img\" src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">
-<pre>
+
   {$messages['body_t']}
-</pre>
+
   </div>
 
 ";
