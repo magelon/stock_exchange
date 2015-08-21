@@ -39,9 +39,6 @@ include ('header_sear.html');
 			echo '<tr>
 					<td align="left"><a href="read.php?tid=' . $row['thread_id'] . '">' . $row['subject'] . '</a></td>
 
-
-
-
 				</tr>';
 
 		}

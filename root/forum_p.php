@@ -24,7 +24,7 @@ if (mysqli_num_rows($r) > 0) {
 	// Fetch each thread:
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 
-
+//print the thread link and edit link
 		echo '<tr>
 				<td align="left"><a href="read.php?tid=' . $row['thread_id'] . '">' . $row['subject'] . '</a></td>
 				<td align="left"> <a href="read_edit.php?tid='. $row['thread_id'] .'">Edit</a></td>
