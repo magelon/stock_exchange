@@ -9,8 +9,9 @@ echo "
   </h2>
 </div>
 <div class=\"row\">
-<img id=\"t_img\" src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">
 <pre>
+<img id=\"t_img\" src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">
+
   {$messages['body_t']}
 </pre>
   </div>
