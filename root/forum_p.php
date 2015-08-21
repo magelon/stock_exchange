@@ -28,6 +28,7 @@ if (mysqli_num_rows($r) > 0) {
 		echo '<tr>
 				<td align="left"><a href="read.php?tid=' . $row['thread_id'] . '">' . $row['subject'] . '</a></td>
 				<td align="left"> <a href="read_edit.php?tid='. $row['thread_id'] .'">Edit</a></td>
+					<td align="left"> <a href="delete_thread.php?tid='. $row['thread_id'] .'">Delete</a></td>
 				</tr>
 				';
 		}
