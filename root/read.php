@@ -48,7 +48,7 @@ where t.thread_id=$tid
 	";
 
 $q5="create or replace view reppview as
-select a.message,a.name,a.user_id,a.parent_id
+select a.message,a.name,a.user_id,a.parent_id,a.post_id
 from repview as a
 inner join posts as b on a.parent_id=b.post_id
 	";
@@ -89,27 +89,31 @@ if ($tid) { // Get the messages in this thread...
 
 			$printed = TRUE;
 		}
+//print subject and body
 
 while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
-		$postid =$messages1['post_id'];
+		//get imgs
 		include('get_img_posts.php');
-		$q6="
-		select name,user_id,message
-		from reppview where parent_id=$postid
-			";
 
-		$r3 = mysqli_query($dbc, $q6);
-
-
-
-
-
+//dispaly replys with parentid=0
 			echo "<div id=\"replys\">
 
 			<p id=\"replys1\">	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
 				{$messages1['name']} :{$messages1['message']}</p>
-
 			";
+
+
+			//set postid = which parentid=0
+			$postid =$messages1['post_id'];
+			//query get messages parentid = postid
+			$q6="
+			select name,user_id,message,post_id
+			from reppview where parent_id=$postid
+				";
+	//run query
+			$r3 = mysqli_query($dbc, $q6);
+						//dispaly replys have parentid under replys parentid=0
+
 							while ($messages2=mysqli_fetch_array($r3,MYSQLI_ASSOC)){
 
 								include('get_img_reply.php');
@@ -117,11 +121,9 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 								echo"
 								<p>	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
 									{$messages2['name']}:{$messages2['message']}</p>
-
 								";
-							}
-
-			echo"	</div>";
+								}
+								echo"</div>";
 
 		//check if can reply
 		if (isset($_SESSION['user_id'])){
@@ -133,10 +135,11 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 <?php
 echo"
 <a  data-toggle=\"collapse\" href=\"#$col_post_id\" aria-expanded=\"false\" aria-controls=\"$col_post_id\">
+reply
+</a>
 ";
 ?>
-  reply
-</a>
+
 
 <?php
 echo"
