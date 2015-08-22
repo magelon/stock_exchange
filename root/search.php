@@ -5,16 +5,16 @@
 require ('../mysqli_connect.php');
 
 // Show the search form:
-echo '<form action="search.php" method="get" accept-charset="utf-8">
-<p><em>search</em>: <input name="terms" type="text" size="30" maxlength="60" ';
+//echo '<form action="search.php" method="get" accept-charset="utf-8">
+//<p><em>search</em>: <input name="terms" type="text" size="30" maxlength="60" ';
 
 // Check for existing value:
-if (isset($_GET['terms'])) {
-	echo 'value="' . htmlspecialchars($_GET['terms']) . '" ';
-}
+//if (isset($_GET['terms'])) {
+//	echo 'value="' . htmlspecialchars($_GET['terms']) . '" ';
+//}
 
 // Complete the form:
-echo '/><input name="submit" type="submit"  /></p></form>';
+//echo '/><input name="submit" type="submit"  /></p></form>';
 
 if (isset($_GET['terms'])) { // Handle the form.
 $page_title = 'search';

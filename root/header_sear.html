@@ -48,7 +48,7 @@
   </ul>
 </div>
 ';
-	
+
 
 			if($_SESSION['role']=='admin'){
 					echo '
@@ -68,7 +68,7 @@
 		}
 
 		if (isset($_SESSION['user_id'])) {
-		echo"<span class=\"glyphicon glyphicon-usd\" aria-hidden=\"true\"></span>";
+		echo"<span class=\"glyphicon glyphicon-heart\" aria-hidden=\"true\"></span>";
 		echo " {$_SESSION['balance']} ";
 	}
 			else {
@@ -76,6 +76,18 @@
 			<button type="button" class="btn btn-default navbar-btn">	<a href="login.php">Login</a></button>
 		<button type="button" class="btn btn-default navbar-btn"><a href="register.php">register</a></button>';
 			}
+
+			// Show the search form:
+			echo '<form class="navbar-form navbar-right" action="search.php" method="get" accept-charset="utf-8">
+			<p><em>search</em>: <input name="terms" type="text" size="30" maxlength="60" ';
+
+				// Check for existing value:
+				if (isset($_GET['terms'])) {
+					echo 'value="' . htmlspecialchars($_GET['terms']) . '" ';
+				}
+
+				// Complete the form:
+				echo '/><input name="submit" type="submit"  /></p></form>';
 
 			?>
 

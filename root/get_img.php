@@ -10,7 +10,7 @@ $url = rtrim($url, '/\\');
 $page='show_image.php';
 
 if(isset($_SESSION['user_id'])){
-  
+
   $q="select picture from users where user_id={$_SESSION['user_id']}";
 
   $r=mysqli_query($dbc,$q);
@@ -19,6 +19,6 @@ if(isset($_SESSION['user_id'])){
 
 $url .= '/' .$page.'?'.'image='.$row['picture'];
 }else{
-  $url.='/'.'uploads/umaru00.png';
+  $url.='/'.'uploads/umr.png';
 }
 ?>

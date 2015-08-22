@@ -26,11 +26,11 @@ include('get_img.php');
 <div class="media">
 	<div class="media-left">
 		<a href="#">
-			<img class="media-object" src="uploads/umr.png" alt="umaru">
+			
 		</a>
 	</div>
 	<div class="media-body">
-		<h4 class="media-heading">Media heading</h4>
+		<h4 class="media-heading">Heading</h4>
 	</div>
 <br>
 <div>
