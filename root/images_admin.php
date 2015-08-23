@@ -15,6 +15,8 @@ include ('header.html');
 <?php # Script 11.4 - images.php
 // This script lists the images in the uploads directory.
 
+if (isset($_SESSION['user_id'])) {
+
 $dir = '../uploads'; // Define the directory to view.
 
 $files = scandir($dir); // Read all the images into an array.
@@ -34,10 +36,14 @@ foreach ($files as $image) {
 
 		// Print the information:
 		echo "<li><a href=\"javascript:create_window('$image_name',$image_size[0],$image_size[1])\">$image</a></li>\n";
-		
+
 	} // End of the IF.
 
 } // End of the foreach loop.
+
+}else{
+	echo'login to use this page';
+}
 ?>
 </ul>
 </body>

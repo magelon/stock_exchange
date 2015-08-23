@@ -39,6 +39,25 @@ if (isset($errors) && !empty($errors)) {
 </div>
 <hr>
 
+<?php
+require_once 'cellphone.php';
+$myPhone = new Cellphone();
+$myPhone->phoneNumber='555-555-5555';
+$myPhone->model='3GS';
+$myPhone->color='Black';
+echo 'Phone number:'.$myPhone->phoneNumber.'<br />';
+echo 'Modle:'.$myPhone->model.'<br />';
+echo 'Color:'.$myPhone->color.'<br />';
+
+$myPhone->addContact('555-555-1212', 'Sally Strange');
+$myPhone->addContact('555-555-1515', 'George Mason');
+//print_r($myPhone->contacts);
+$myPhone->dispalyContacts();
+/*$yourPhone=new Cellphone('555-444-3333','iphone','Black');
+echo 'phonenumber:'.$yourPhone->phoneNumber.'<br />';
+echo 'Model:'.$yourPhone->model.'<br />';
+echo 'Color:'.$yourPhone->color.'<br />';*/
+?>
 
 </div>
 

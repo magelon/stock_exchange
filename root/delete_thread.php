@@ -58,14 +58,8 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 		echo'balance subtracted';
 	}
 
-
 }
 
-
-
 ?>
-
-
-
 
 <?php include ('includes/footer.html'); ?>

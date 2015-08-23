@@ -3,7 +3,6 @@
 
 // Retrieve all the messages in this forum...
 
-
 // The query for retrieving all the threads in this forum, along with the original user,
 // when the thread was first posted, when it was last replied to, and how many replies it's had:
 $q = "SELECT t.thread_id, t.subject,name FROM threads AS t left join users  on users.user_id= t.user_id order by t.thread_id ";
