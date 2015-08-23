@@ -20,6 +20,8 @@ if (isset($_GET['image'])) {
 			// Set the name as this image:
 			$name = $_GET['image'];
 
+			}
+
 		} // End of file_exists() IF.
 
 	} // End of $ext IF.

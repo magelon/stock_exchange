@@ -39,6 +39,9 @@ foreach ($files as $image) {
 			// Make the image's name URL-safe:
 			$image_name = urlencode($image);
 
+			include('see_pic.php');
+
+			echo'<a ></a>';
 			// Print the information:
 			echo "<li><a href=\"javascript:create_window('$image_name',$image_size[0],$image_size[1])\">$image</a></li>\n";
 		}

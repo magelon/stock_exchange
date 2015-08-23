@@ -3,7 +3,7 @@
 
 echo "
 <div class=\"row\">
-<h1 class=\"col-md-4\">{$messages['subject']}</h1>
+<h1 class=\"col-md-4\">{$messages['subject']}  &nbsp; &nbsp; &nbsp;&nbsp; value:  {$messages['value']} </h1>
   <h2>
   <!-- value:  {$messages['value']}   value_each:-->
   </h2>

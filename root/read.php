@@ -101,6 +101,9 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 			<p id=\"replys1\">	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
 				{$messages1['name']} :{$messages1['message']}</p>
 			";
+			if($_SESSION['role']=='admin'){
+				echo'<a href="delete_posts.php?pid='.$messages1['post_id'].'">delete</a>';
+			}
 
 
 			//set postid = which parentid=0
@@ -122,6 +125,10 @@ while($messages1=mysqli_fetch_array($r7,MYSQLI_ASSOC)){
 								<p>	<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
 									{$messages2['name']}:{$messages2['message']}</p>
 								";
+								if($_SESSION['role']=='admin'){
+									echo'<a href="delete_posts.php?pid='. $messages2['post_id'] .'">delete</a>';
+								}
+
 								}
 								echo"</div>";
 
