@@ -5,9 +5,10 @@ echo "
 <div class=\"row\">
 <h1 class=\"col-md-4\">{$messages['subject']}  &nbsp; &nbsp; &nbsp;&nbsp; value:{$messages['value']}
 </h1>
+<div id=\"div1\" style=\"display: none;\">+10</div>
 <button type=\"button\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span>
 </button>
-<div id=\"div1\" style=\"display: none;\">+10</div>
+
   <h2>
   <!-- value:  {$messages['value']}   value_each:-->
   </h2>
