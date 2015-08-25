@@ -1,5 +1,5 @@
-<?php # Script 17.4 - forum.php
-// This page shows the threads in a forum.
+<?php # Script 17.4 - forum_p.php
+// This page shows the threads in a forum which users created and edit links.
 
 // Start the session.
 session_start();
