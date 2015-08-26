@@ -3,7 +3,7 @@
 
 //start session read session information
 
-session_start();
+
 
 $page_title = 'read';
 

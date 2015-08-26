@@ -3,8 +3,6 @@
 
 <?php # Script 11.2 - upload_image_t.php
 
-// Start the session.
-session_start();
 // Include the header:
 $page_title = 'upload';
 include ('header.html');
@@ -36,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				echo '<p><em>The file has been uploaded!</em></p>';
 
 				$q="UPDATE users set picture = '$filename' where user_id={$_SESSION['user_id']} ";
-				
+
 				$p= mysqli_query($dbc, $q);
 
 				if (mysqli_affected_rows($dbc) == 1) {

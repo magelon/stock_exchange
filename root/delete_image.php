@@ -1,7 +1,5 @@
 <?php # Script 17.5 - delete_image.php
 // This page shows the messages in a thread.
-//start session read session information
-session_start();
 
 $page_title = 'delete_posts';
 

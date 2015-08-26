@@ -1,8 +1,5 @@
 <?php # Script 17.5 - read.php
 // This page shows the messages in a thread.
-//start session read session information
-session_start();
-
 $page_title = 'read_edit';
 
 //need header.html

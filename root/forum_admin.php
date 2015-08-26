@@ -1,7 +1,5 @@
 <?php # Script 17.4 - forum.php
 // This page shows the threads in a forum.
-// Start the session.
-session_start();
 // Include the header:
 $page_title = 'threads_admin';
 include ('header.html');

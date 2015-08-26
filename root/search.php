@@ -1,5 +1,7 @@
 <?php # Script 17.8 - search.php
 // This page displays and handles a search form.
+// Start the session.
+session_start();
 
 // need database connection
 require ('../mysqli_connect.php');

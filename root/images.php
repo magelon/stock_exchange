@@ -1,7 +1,4 @@
 <?php
-session_start();
-// Start the session.
-
 $page_title = 'images';
 
 // Include the header:

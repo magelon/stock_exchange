@@ -3,7 +3,7 @@
 
 echo "
 <div class=\"row\">
-<h1 class=\"col-md-4\">{$messages['subject']}  &nbsp; &nbsp; &nbsp;&nbsp; value:{$messages['value']}
+<h1 class=\"col-md-4\">{$messages['subject']}
 </h1>
 <div id=\"thumbs\" style=\"display: none;\">+10</div>
 <button id=\"thumb_bt\" type=\"button\" class=\"btn btn-primary\"><span class=\"glyphicon glyphicon-thumbs-up\" aria-hidden=\"true\"></span>
