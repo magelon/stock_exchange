@@ -39,6 +39,9 @@ $(document).ready(function(){
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="index.php">
 					<?php
+					// Turn off all error reporting
+					error_reporting(0);
+
 					include('get_img.php');
 					echo"
 					<img class=\"img-circle\" alt=\"Brand\" src=\" $url \" HEIGHT=\"30\" WIDTH=\"30\" BORDER=\"0\">
