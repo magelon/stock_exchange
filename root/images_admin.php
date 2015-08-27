@@ -45,5 +45,5 @@ echo "<a href=\"delete_image.php?imgid=$image_name\">delete</a>";
 }
 ?>
 </ul>
-</body>
-</html>
+<hr>
+<?php include ('includes/footer.html'); ?>

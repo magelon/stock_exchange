@@ -54,5 +54,5 @@ foreach ($files as $image) {
 
 ?>
 </ul>
-</body>
-</html>
+
+<?php include ('includes/footer.html'); ?>

@@ -39,3 +39,6 @@ if (mysqli_num_rows($r) > 0) {
 
 
 ?>
+
+<hr>
+<?php include ('includes/footer.html'); ?>
