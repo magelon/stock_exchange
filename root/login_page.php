@@ -20,7 +20,7 @@ if (isset($errors) && !empty($errors)) {
 ?>
 
 <div class="media">
-	<div class="media-left">
+	<div class=" ">
 		<a href="#">
 			<img class="media-object" src="uploads/umr.png" alt="umaru">
 		</a>

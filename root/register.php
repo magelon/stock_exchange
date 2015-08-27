@@ -86,7 +86,7 @@ $ro = mysqli_real_escape_string($dbc, trim($_POST['role']));
 ?>
 
 <div class="media">
-	<div class="media-left">
+	<div>
 		<a href="#">
 			<img class="media-object" src="uploads/umr.png" alt="umaru">
 		</a>

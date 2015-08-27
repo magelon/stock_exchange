@@ -37,7 +37,17 @@ $(document).ready(function(){
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
+
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			 <span class="sr-only">Toggle navigation</span>
+			 <span class="icon-bar"></span>
+			 <span class="icon-bar"></span>
+			 <span class="icon-bar"></span>
+		 </button>
+
 	      <a class="navbar-brand" href="index.php">
+
+
 					<?php
 					include('get_img.php');
 					echo"
@@ -45,14 +55,16 @@ $(document).ready(function(){
 					";
 					?>
 	      </a>
-	    </div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
 			<?php
 
 			// Create a login/logout link:
 			if (isset($_SESSION['user_id'])) {
 			echo '
-			<ul class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">for login users
+			<ul>
+    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">for login users
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
       <li><a href="upload_image.php">upload image</a></li>
@@ -68,8 +80,8 @@ $(document).ready(function(){
 
 			if($_SESSION['role']=='admin'){
 					echo '
-					<ul class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">for admin
+					<ul>
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">for admin
         <span class="caret"></span></button>
         <ul class="dropdown-menu">
           <li><a href="view_users.php ">view_users</a></li>
@@ -83,17 +95,20 @@ $(document).ready(function(){
 
 		if (isset($_SESSION['user_id'])) {
 		echo"<span class=\"glyphicon glyphicon-heart\" aria-hidden=\"true\"></span>";
-		echo " {$_SESSION['balance']} ";
+		echo " {$_SESSION['balance']}
+		</div><!-- /.navbar-collapse -->
+		";
 	}
 			else {
 			echo '
 			<a href="login.php">Login</a>
 		  <a href="register.php">register</a>
+
 			';
 			}
 
 			// Show the search form:
-			echo '<form class="navbar-form navbar-right" action="search.php" method="get" accept-charset="utf-8">
+			echo '</div><!--not login --><form class="navbar-form navbar-right" action="search.php" method="get" accept-charset="utf-8">
 			<p><em>search</em>: <input name="terms" type="text" size="30" maxlength="60" ';
 
 				// Check for existing value:
@@ -107,7 +122,7 @@ $(document).ready(function(){
 			?>
 
 
-
+		 </div>
 	  </div>
 	</nav>
 
