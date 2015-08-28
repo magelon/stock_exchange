@@ -12,6 +12,6 @@ $page='show_image.php';
 
 $url_t .= '/' .$page.'?'.'image='.$image_name;
 
-echo"<img id=\"t_img\" src=\" $url_t \" HEIGHT=\"60\" WIDTH=\"100\" BORDER=\"0\">";
+echo"<img id=\"t_img\" src=\" $url_t \" HEIGHT=\"100\" WIDTH=\"130\" BORDER=\"0\">";
 
 ?>
