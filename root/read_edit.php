@@ -1,10 +1,9 @@
 <?php # Script 17.5 - read.php
 // This page shows the messages in a thread.
 $page_title = 'read_edit';
-
+require('session.php');
 //need header.html
 include ('header.html');
-
 
 $tid = FALSE;
 

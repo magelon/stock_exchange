@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 
 	if (isset($_POST['pid']) && filter_var($_POST['pid'], FILTER_VALIDATE_INT, array('min_range' => 1)) ) {
 		$pid = $_POST['pid'];
-	} 
+	}
 
 
 
@@ -39,6 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 			$r = mysqli_query($dbc, $q);
 			if (mysqli_affected_rows($dbc) == 1) {
 				echo '<p>Your post has been entered.</p>';
+
+				header('Location: ' . $_SERVER['HTTP_REFERER']);
 			} else {
 				echo '<p>Your post could not be handled due to a system error.</p>';
 			}

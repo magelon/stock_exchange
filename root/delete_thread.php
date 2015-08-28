@@ -54,6 +54,9 @@ if (isset($_GET['tid']) && filter_var($_GET['tid'], FILTER_VALIDATE_INT, array('
 		echo'balance subtracted';
 	}
 
+	require ('includes/login_function.php');
+	redirect_user($page='forum_admin.php');
+
 }
 
 ?>

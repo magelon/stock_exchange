@@ -2,6 +2,7 @@
 // This page shows the threads in a forum which users created and edit links.
 // Include the header:
 $page_title = 'threads_personal';
+require('session.php');
 include ('header.html');
 
 //Number of records

@@ -43,9 +43,11 @@ include ('header_search.html');
 
 				</tr>';
 
+
 		}
 
 		echo '</table>'; // Complete the table.
+		include ('includes/footer.html');
 	} else {
 		echo '<p>No results found.</p>';
 	}

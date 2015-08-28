@@ -36,7 +36,7 @@ if (isset($_GET['pid']) && filter_var($_GET['pid'], FILTER_VALIDATE_INT, array('
 	if (mysqli_affected_rows($dbc) == 1) {
 		echo'posts deleted';
 	}
-
+	header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 }
 

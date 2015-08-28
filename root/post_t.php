@@ -121,6 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 					echo '<p>your balance is add up 10.</p>';
 				$tid = mysqli_insert_id($dbc);
 				echo '<p>Your post has been entered.</p>';
+				
+				require ('includes/login_function.php');
+				redirect_user();
 
 			} else {
 				echo '<p>Your post could not be handled due to a system error.</p>';

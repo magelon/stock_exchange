@@ -1,6 +1,7 @@
 <?php
 $page_title = 'images';
 // Include the header:
+require('session.php');
 include ('header.html');
 
 ?>
@@ -11,7 +12,10 @@ include ('header.html');
 <?php # Script 11.4 - images.php
 // This script lists the images in the uploads directory.
 
-if (isset($_SESSION['user_id'])) {
+
+
+
+if ($_SESSION['role']=='admin') {
 
 $dir = '../uploads'; // Define the directory to view.
 
@@ -32,9 +36,9 @@ foreach ($files as $image) {
 
 		include('see_pic.php');
 
-echo "<a href=\"delete_image.php?imgid=$image_name\">delete</a>";
+echo "<a href=\"delete_image.php?imgid=$image_name\">delete</a>&nbsp; ";
 				// Print the information:
-		echo "<li><a href=\"javascript:create_window('$image_name',$image_size[0],$image_size[1])\">$image</a></li>";
+		echo "<a href=\"javascript:create_window('$image_name',$image_size[0],$image_size[1])\">$image</a>";
 
 	} // End of the IF.
 

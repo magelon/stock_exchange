@@ -31,4 +31,6 @@ if (isset($_GET['imgid'])) {
 	}
 }
 }
+require ('includes/login_function.php');
+redirect_user($page='images_admin.php');
 }

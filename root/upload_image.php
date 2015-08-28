@@ -3,6 +3,7 @@
 
 <?php # Script 11.2 - upload_image_t.php
 
+require('session.php');
 // Include the header:
 $page_title = 'upload';
 include ('header.html');

@@ -26,7 +26,7 @@ if (isset($errors) && !empty($errors)) {
 		</a>
 	</div>
 	<div class="media-body">
-		<h4 class="media-heading">Media heading</h4>
+		
 <h1>Login</h1>
 <form action="login.php" method="post">
 	<p>Email Address: <input type="text" name="email" size="20" maxlength="60" /> </p>

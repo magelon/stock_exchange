@@ -92,8 +92,6 @@ $ro = mysqli_real_escape_string($dbc, trim($_POST['role']));
 		</a>
 	</div>
 	<div class="media-body">
-		<h4 class="media-heading">Media heading</h4>
-
 <h1>Register</h1>
 <form action="register.php" method="post">
 	<p>Name: <input type="text" name="name" size="15" maxlength="20" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" /></p>
